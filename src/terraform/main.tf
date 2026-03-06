@@ -3,6 +3,6 @@ resource "aws_s3_bucket" "common_bucket" {
 }
 
 resource "aws_s3_object" "tf_state" {
-  bucket = aws_s3_bucket.common_bucket.arn
+  bucket = aws_s3_bucket.common_bucket.bucket
   key    = "tf_state"
 }
