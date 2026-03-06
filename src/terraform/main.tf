@@ -1,3 +1,8 @@
-resource "aws_s3_bucket" "batman_bucket" {
-  bucket = "batman_bucket_1M"
+resource "aws_s3_bucket" "common_bucket" {
+  bucket = "common_resource_bucket"
+}
+
+resource "aws_s3_object" "tf_state" {
+  bucket = aws_s3_bucket.common_bucket.arn
+  key    = "tf_state"
 }
