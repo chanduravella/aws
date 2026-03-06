@@ -11,3 +11,8 @@ import {
   to = aws_s3_bucket.common_bucket
   id = "common-resource-bucket"
 }
+
+import {
+  to = aws_s3_object.tf_state
+  id = "common-resource-bucket/tf_state"
+}
