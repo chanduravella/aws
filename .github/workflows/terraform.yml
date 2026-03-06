@@ -19,7 +19,7 @@ jobs:
         run: |
          cd src/terraform
          terraform init
-         terraform plan
+         terraform plan --out=tfplanfile
 
       - name: Terraform Apply
-        run: terraform apply
+        run: terraform apply tfplanfile
