@@ -22,4 +22,4 @@ jobs:
          terraform plan --out=tfplanfile
 
       - name: Terraform Apply
-        run: terraform apply tfplanfile
+        run: terraform apply "tfplanfile"
