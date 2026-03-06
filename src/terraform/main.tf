@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "common_bucket" {
-  bucket = "common_resource_bucket"
+  bucket = "common-resource-bucket"
 }
 
 resource "aws_s3_object" "tf_state" {
