@@ -59,6 +59,6 @@ resource "aws_iam_role_policy_attachment" "dev-role-permission-policy-attachment
 }
 
 resource "aws_iam_policy" "dev-role-permission-policy" {
-  name       = "Dev Role Permission Policy Attachment"
+  name       = "dev-role-permission-policy"
   policy     = data.aws_iam_policy_document.dev-role-permission-policy-document.json
 }
