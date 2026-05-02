@@ -17,8 +17,13 @@ jobs:
 
       - name: Terraform Plan
         run: |
-         terraform -chdir=src/terraform init
-         terraform -chdir=src/terraform plan --out=tfplanfile
+          terraform -chdir=src/terraform init
+          terraform -chdir=src/terraform plan --out=tfplanfile
 
+  terraform-apply:
+    needs: terraform-plan
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Terraform Apply
         run: terraform -chdir=src/terraform apply "tfplanfile"
