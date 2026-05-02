@@ -2,7 +2,7 @@ module "global" {
   source = "./global"
 
     providers = {
-        aws = aws
+        aws = aws.global
     }
 }
 
