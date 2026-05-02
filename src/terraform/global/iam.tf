@@ -9,7 +9,7 @@ resource "aws_iam_role" "dev-role" {
 data "aws_iam_policy_document" "dev-role-trust-policy" {
 
   statement {
-    sid = "Allow sts:AssumeRole from any principal in account"
+    sid = "AllowAssumeRoleForAnyPrincipalInAccount"
     effect = "Allow"
     actions = [
       "sts:AssumeRole"
@@ -23,7 +23,7 @@ data "aws_iam_policy_document" "dev-role-trust-policy" {
 
 data "aws_iam_policy_document" "dev-role-permission-policy-document" {
   statement {
-    sid = "Allow access on all resources"
+    sid = "AllowAllActionsExceptDelete"
     effect = "Allow"
     actions = [
       "s3:*",
@@ -38,7 +38,7 @@ data "aws_iam_policy_document" "dev-role-permission-policy-document" {
   }
 
   statement {
-    sid = "Explicitly deny access to delete resources"
+    sid = "DenyDeleteActions"
     effect = "Deny"
     actions = [
       "s3:Delete*",
