@@ -18,12 +18,21 @@ jobs:
       - name: Terraform Plan
         run: |
           terraform -chdir=src/terraform init
-          terraform -chdir=src/terraform plan --out=tfplanfile
+          terraform -chdir=src/terraform plan
 
   terraform-apply:
     needs: terraform-plan
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform -chdir=src/terraform init
+
       - name: Terraform Apply
-        run: terraform -chdir=src/terraform apply "tfplanfile"
+        run: terraform -chdir=src/terraform apply -auto-approve
